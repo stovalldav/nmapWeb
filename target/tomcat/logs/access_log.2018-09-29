@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [29/Sep/2018:21:32:42 -0600] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [29/Sep/2018:21:32:42 -0600] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [29/Sep/2018:21:32:46 -0600] "GET /nmapJDBCWeb/ HTTP/1.1" 200 655 http-bio-8080-exec-2 701
+0:0:0:0:0:0:0:1 - - [29/Sep/2018:21:32:57 -0600] "POST /nmapJDBCWeb/ScanTarget HTTP/1.1" 200 655 http-bio-8080-exec-5 32
+0:0:0:0:0:0:0:1 - - [29/Sep/2018:21:33:16 -0600] "POST /nmapJDBCWeb/ScanTarget HTTP/1.1" 200 704 http-bio-8080-exec-6 150
