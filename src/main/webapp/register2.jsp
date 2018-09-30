@@ -22,6 +22,11 @@
            		<td><% out.println(request.getParameter("os_type")); %></td>  
            	</tr>        		
            </table>
-           <textarea name='results' id='results'><%out.println(request.getParameter("results")); %></textarea>
+           <textarea name='results' id='results' varStatus="status">
+           	<c:forEach var"find" items"${request.getParameter("results") }">
+           		${find}<c:if test="${!status.last }">, </c:if>c:if>
+           	</c:forEach)
+           	
+           	<%out.println(request.getParameter("results")); %></textarea>
 	</body>
 </html>
