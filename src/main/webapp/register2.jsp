@@ -22,5 +22,6 @@
            		<td><% out.println(request.getParameter("os_type")); %></td>  
            	</tr>        		
            </table>
+           <textarea name='results' id='results'><%out.println(request.getParameter("results")); %></textarea>
 	</body>
 </html>

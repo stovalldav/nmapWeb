@@ -1,6 +1,7 @@
 package com.cve.nmapJDBCWeb;
 
 import java.io.IOException;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,7 +46,9 @@ public class ScanTarget extends HttpServlet {
 		}
 		else
 		{
-
+			nmapScan ns = new nmapScan();
+			List<String> resultsList = ns.scanTarget(my_target);
+			request.setAttribute("results", resultsList);
 			request.setAttribute("target",my_target);
 			request.setAttribute("scan_options", scan_options);
 			request.setAttribute("os_type",os_type);
