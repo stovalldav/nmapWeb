@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Dictionary" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,7 +22,12 @@
            	</tr>
             <tr>
            		<td align="left">OS Type</td>
-           		<td><% out.println(request.getAttribute("os_type")); %></td>  
+           		<td>
+           		<%
+           			Dictionary<String,String> d = (Dictionary<String,String>) request.getAttribute("os_type");
+           			out.println(d.get("os"));
+           		%>  
+           		</td>
            	</tr>        		
            </table>
            <textarea name='results' id='results'>

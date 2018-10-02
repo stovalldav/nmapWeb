@@ -47,13 +47,14 @@ public class ScanTarget extends HttpServlet {
 		else
 		{
 			nmapScan ns = new nmapScan();
-			List<String> resultsList = ns.scanTarget(my_target);
+			ArrayList<String> resultsList = ns.scanTarget(my_target);
+			Dictionary<String,String> d = ns.processResults(resultsList);
 			resultsList.forEach(System.out::println);
 			
 			request.setAttribute("resultsList", resultsList);
 			request.setAttribute("target",my_target);
 			request.setAttribute("scan_options", scan_options);
-			request.setAttribute("os_type",os_type);
+			request.setAttribute("os_type",d.get("os"));
 			RequestDispatcher req = request.getRequestDispatcher("register2.jsp");
 			req.forward(request, response);
 		}
