@@ -73,7 +73,9 @@ public class nmapScan {
 			for (String items: resultsList) {
 				final Pattern ptn = Pattern.compile("^(OS CPE: .*?)(?:[a-zA-Z]+)((?:[a-z][a-z0-9_]*))");
 				Matcher mtch = ptn.matcher(items);
+				System.out.println("**"+items);
 				if(mtch.find()) {
+					System.out.println("Match: "+items);
 					System.out.println(mtch.group(1));
 					System.out.println(mtch.group(2));
 					d.put("os", mtch.group(2));
