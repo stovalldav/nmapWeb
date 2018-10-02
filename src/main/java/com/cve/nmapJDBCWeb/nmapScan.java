@@ -89,7 +89,8 @@ public class nmapScan {
 					System.out.println("Match: "+items);
 					System.out.println(mtch.group(2));
 					System.out.println(mtch.group(3));
-					d.put("os", mtch.group(2).toString());
+					d.put("vendor", mtch.group(2).toString());
+					d.put("product", mtch.group(3).toString());
 				}
 				
 			}
