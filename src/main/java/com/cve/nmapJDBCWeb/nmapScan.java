@@ -71,7 +71,7 @@ public class nmapScan {
 			Dictionary<String,String> d = new Hashtable<String,String>();
 			
 			for (String items: resultsList) {
-				final Pattern ptn = Pattern.compile("^(OS CPE:).*(?:[a-zA-Z]+).*((?:[a-z][a-z0-9_]*))");
+				final Pattern ptn = Pattern.compile("^(OS CPE:).*((?:[a-zA-Z][a-zA-Z]+)).*((?:[a-z][a-z0-9_]*))");
 				Matcher mtch = ptn.matcher(items);
 				System.out.println("**"+items);
 				if(mtch.find()) {
