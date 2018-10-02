@@ -25,7 +25,7 @@
            	</tr>        		
            </table>
            <textarea name='results' id='results'>
-           		<c:forEach var="find" items="${results}" varStatus="status">
+           		<c:forEach var="find" items="request.getParameter('results')" varStatus="status">
            			<c:if test="${!status.last }">
            				<c:out value="${find}"></c:out>
            			</c:if>
