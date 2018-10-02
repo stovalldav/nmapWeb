@@ -77,12 +77,12 @@ public class nmapScan {
 		    String re5="(?:[a-z][a-z]+)";	// Uninteresting: word
 		    String re6=".*?";	// Non-greedy match on filler
 		    String re7="((?:[a-z][a-z]+))";	// Word 2
-		    String re8=".*?";	// Non-greedy match on filler
+		    //String re8=".*?";	// Non-greedy match on filler
 		    String re9="((?:[a-z][a-z0-9_]*))";	// Variable Name 1
 		    
 			for (String items: resultsList) {
 				//final Pattern ptn = Pattern.compile("^(OS CPE:).*((?:[a-zA-Z][a-zA-Z].*?:)).*((?:[a-z][a-z0-9_]*))");
-				final Pattern ptn = Pattern.compile(re1+re2+re3+re4+re5+re6+re7+re8+re9,Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+				final Pattern ptn = Pattern.compile(re1+re2+re3+re4+re5+re6+re7+re9,Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
 				Matcher mtch = ptn.matcher(items);
 				System.out.println("**"+items);
 				if(mtch.find()) {
