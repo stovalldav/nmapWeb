@@ -12,24 +12,25 @@
            	<tr>
            		<td align="left">Target</td>
            		<td>
-           		<% out.println(request.getParameter("target")); %>
+           		<% out.println(request.getAttribute("target")); %>
            		</td>
            	</tr>
            	<tr>
            		<td align="left">Options</td>
-           		<td><% out.println(request.getParameter("scan_options")); %></td>
+           		<td><% out.println(request.getAttribute("scan_options")); %></td>
            	</tr>
             <tr>
            		<td align="left">OS Type</td>
-           		<td><% out.println(request.getParameter("os_type")); %></td>  
+           		<td><% out.println(request.getAttribute("os_type")); %></td>  
            	</tr>        		
            </table>
            <textarea name='results' id='results'>
-           		<c:forEach var="find" items="${resultsList }" varStatus="status">
-           			<c:if test="${!status.last }">
-           				<c:out value="${find}"/>
-           			</c:if>
-           		</c:forEach>
+           		<%
+           		ArrayList<String> list = (ArrayList<String>) request.getAttribute("resultsList");
+           		for(String item: list){
+           			out.println(item);
+           		}
+           		%>
 			</textarea>
 	</body>
 </html>
