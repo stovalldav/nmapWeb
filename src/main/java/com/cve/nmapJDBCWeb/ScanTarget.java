@@ -50,7 +50,7 @@ public class ScanTarget extends HttpServlet {
 			List<String> resultsList = ns.scanTarget(my_target);
 			resultsList.forEach(System.out::println);
 			
-			request.setAttribute("results", resultsList);
+			request.setAttribute("resultsList", resultsList);
 			request.setAttribute("target",my_target);
 			request.setAttribute("scan_options", scan_options);
 			request.setAttribute("os_type",os_type);
