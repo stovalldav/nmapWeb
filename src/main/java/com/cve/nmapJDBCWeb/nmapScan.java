@@ -78,7 +78,7 @@ public class nmapScan {
 		    String re6=".*?";	// Non-greedy match on filler
 		    String re7="((?:[a-z][a-z]+))";	// Word 2
 		    String re8=".*?";	// Non-greedy match on filler
-		    String re9="((?:[a-z][a-z0-9_]*))";	// Variable Name 1
+		    String re9="((?:[a-z0-9_][a-z0-9_]*))";	// Variable Name 1
 		    
 			for (String items: resultsList) {
 				//final Pattern ptn = Pattern.compile("^(OS CPE:).*((?:[a-zA-Z][a-zA-Z].*?:)).*((?:[a-z][a-z0-9_]*))");
