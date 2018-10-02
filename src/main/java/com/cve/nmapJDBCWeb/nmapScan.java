@@ -70,7 +70,7 @@ public class nmapScan {
 		public Dictionary<String,String> processResults (ArrayList<String> resultsList) {
 			Dictionary<String,String> d = new Hashtable<String,String>();
 			
-			String re1="(OS)";	// Word 1
+			String re1="(OS CPE)";	// Word 1
 		    String re2=".*?";	// Non-greedy match on filler
 		    String re3="(?:[a-z][a-z]+)";	// Uninteresting: word
 		    String re4=".*?";	// Non-greedy match on filler
