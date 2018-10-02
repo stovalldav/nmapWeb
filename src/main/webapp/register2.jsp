@@ -23,11 +23,13 @@
             <tr>
            		<td align="left">OS Type</td>
            		<td>
+           		<textarea name='vendor' id='vendor'>
            		<%
            			Dictionary<String,String> rDict = (Dictionary<String,String>) request.getAttribute("os_type");
            			out.println(rDict.get("product"));
            			out.println(rDict.get("vendor"));
            		%>  
+           		</textarea>
            		</td>
            	</tr>        		
            </table>
