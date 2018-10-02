@@ -20,19 +20,18 @@
            		<td align="left">Options</td>
            		<td><% out.println(request.getAttribute("scan_options")); %></td>
            	</tr>
-            <tr>
-           		<td align="left">OS Type</td>
-           		<td>
-           		<textarea name='vendor' id='vendor'>
-           		<%
+           	<%
            			Dictionary<String,String> rDict = (Dictionary<String,String>) request.getAttribute("os_type");
-           			out.println(rDict.get("vendor"));
-           			out.println(rDict.get("product"));
-           		%>  
-           		</textarea>
-           		</td>
+           	%>
+            <tr>
+           		<td align="left">Vendor</td>
+           		<td align="left"> <%=rDict.get("vendor") %></td>
            	</tr>        		
-           </table>
+            <tr>
+           		<td align="left">Product</td>
+           		<td align="left"> <%=rDict.get("product") %></td>
+           	</tr>
+           	            </table>
            <textarea name='results' id='results'>
            		<%
            		ArrayList<String> list = (ArrayList<String>) request.getAttribute("resultsList");
