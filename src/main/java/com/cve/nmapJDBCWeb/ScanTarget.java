@@ -51,10 +51,18 @@ public class ScanTarget extends HttpServlet {
 			Dictionary<String,String> d = ns.processResults(resultsList);
 			resultsList.forEach(System.out::println);
 			
+			CVEDbQuery cv = new CVEDbQuery();
+			int dbVulns = 0;
+			try {
+				dbVulns=cv.readDataBase(d.get("product"), d.get("vendor"));
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 			request.setAttribute("resultsList", resultsList);
 			request.setAttribute("target",my_target);
 			request.setAttribute("scan_options", scan_options);
 			request.setAttribute("os_type",d);
+			request.setAttribute("vulns", dbVulns);
 			RequestDispatcher req = request.getRequestDispatcher("register2.jsp");
 			req.forward(request, response);
 		}

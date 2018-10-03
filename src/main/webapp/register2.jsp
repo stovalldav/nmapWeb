@@ -31,7 +31,11 @@
            		<td align="left">Product</td>
            		<td align="left"> <%=rDict.get("product") %></td>
            	</tr>
-           	            </table>
+           	<tr>
+           		<td align="left">Vulnerabilities</td>
+           		<td align="left"><% out.println(request.getAttribute("vulns")); %></td>
+           	</tr>
+           </table>
            <textarea name='results' id='results'>
            		<%
            		ArrayList<String> list = (ArrayList<String>) request.getAttribute("resultsList");
