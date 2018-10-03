@@ -1,10 +1,10 @@
 #!/bin/bash
 
-IP=$(ip a show ens33 | grep "inet " |awk -F " " '{print $2}')
+IP=$(/usr/sbin/ip a show ens33 | grep "inet " |awk -F " " '{print $2}')
 MASK=$(echo $IP|awk -F "/" '{print $2}')
 GATEWAY=$(echo $IP|awk -F"/" '{print $1}' |awk -F "." '{print $1"."$2"."$3"."1}')
 SUBNET=$(echo $IP|awk -F"/" '{print $1}' |awk -F "." '{print $1"."$2"."$3"."0}')"/"$MASK
-NET=$(echo $IP|awk -F"/" '{print $1}' |awk -F "." '{print $1"."$2"."$3"."0}').123
+NET=$(echo $IP|awk -F"/" '{print $1}' |awk -F "." '{print $1"."$2"."$3"}').123
 
 docker network create -d macvlan --subnet $SUBNET --gateway $GATEWAY -o parent=ens33 nmnet
 
