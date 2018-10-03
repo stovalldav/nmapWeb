@@ -9,8 +9,7 @@ public class CVEDbQuery {
 	
 	public int readDataBase (String product, String vendor) throws Exception {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			connect  = DriverManager.getConnection("jdbc:mysql://cvedb/feedback?","cveuser", "cvepass");
+			connect  = DriverManager.getConnection("jdbc:mysql://cvedb/cve?"+"user=cveuser@localhost&password=cvepass");
 			statement = connect.createStatement();
 			resultSet = statement.executeQuery("SELECT v.name AS vname, v.id AS vid, p.name AS pname, p.id AS pid FROM vendor v JOIN product p ON v.id=p.vendor_id WHERE p.name="+product+" AND v.name= "+vendor);
 			String prod_id = null;
