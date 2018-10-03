@@ -31,10 +31,6 @@
            		<td align="left">Product</td>
            		<td align="left"> <%=rDict.get("product") %></td>
            	</tr>
-           	<tr>
-           		<td align="left">Vulnerabilities</td>
-           		<td align="left"><% out.println(request.getAttribute("vulns")); %></td>
-           	</tr>
            </table>
            <textarea name='results' id='results'>
            		<%
@@ -43,6 +39,19 @@
            			out.println(item);
            		}
            		%>
+			</textarea>
+           <textarea name='results' id='results'>
+           		<%
+           		Dictionary<String,Dictionary<String,String>> vulnDict = (Dictionary<String,Dictionary<String,String>>) request.getAttribute("vulns");
+           		%>
+           		<c:forEach var="vulnList" items="${vulns}">
+           			Dictionary details = ${vulnList.value}
+           			Vuln ID: ${vulnList.key}/>
+           			<c:forEach var="vulnDetails" items="${details}">
+           				${vulnDetails.key} : ${vulnDetails.value}<br>
+           			</c:forEach>
+           		</c:forEach>
+           		}
 			</textarea>
 	</body>
 </html>

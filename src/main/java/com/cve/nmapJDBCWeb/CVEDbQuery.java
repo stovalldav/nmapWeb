@@ -1,6 +1,7 @@
 package com.cve.nmapJDBCWeb;
 
 import java.sql.*;
+import java.util.*;
 
 public class CVEDbQuery {
 	private Connection connect = null;
@@ -8,8 +9,9 @@ public class CVEDbQuery {
 	private ResultSet resultSet = null;
 	
 	int numVulns = 0;
-	public int readDataBase (String product, String vendor) throws Exception {
-		int numVulns = 0;
+	public Dictionary<String,Dictionary<String,String>> readDataBase (String product, String vendor) throws Exception {
+		Dictionary<String,Dictionary<String,String>> cveDict = new Hashtable<String,Dictionary<String,String>>();
+
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Looks like the Driver registered just fine");
@@ -38,15 +40,50 @@ public class CVEDbQuery {
 			resultSet = statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
+				
+				Dictionary<String,String> vDict = new Hashtable<String,String>();
+
 				numVulns = resultSet.getInt("COUNT(*)");
+				System.out.println("Found vulns: "+String.valueOf(numVulns));
+				
+				String vuln_id =String.valueOf(resultSet.getInt("id"));
+				String impact = resultSet.getString("impact");
+				String modified = resultSet.getString("modified");
+				String access = resultSet.getString("access");
+				String references = resultSet.getString("references");
+				String published = resultSet.getString("Published");
+				String cvssTime = resultSet.getString("cvss_time");
+				String vulnConf2 = resultSet.getString("vulnerable_configuration_cpe_2_2");
+				String summary = resultSet.getString("summary");
+				String cwe = resultSet.getString("cwe");
+				String cvss = resultSet.getString("cvss");
+				String vulnConf = resultSet.getString("vulnerable_configuration");
+				String lastModified = resultSet.getString("last_modified");
+				
+				vDict.put("impact", impact);
+				vDict.put("modified", modified);
+				vDict.put("access", access);
+				vDict.put("references", references);
+				vDict.put("published", published);
+				vDict.put("cvssTime", cvssTime);
+				vDict.put("vulnConf2",vulnConf2);
+				vDict.put("summary", summary);
+				vDict.put("cwe", cwe);
+				vDict.put("cvss", cvss);
+				vDict.put("vulnConf",vulnConf);
+				vDict.put("lastModified", lastModified);
+				
+				cveDict.put(vuln_id, vDict);
+				
 			}
-			return numVulns;
+			return cveDict;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return numVulns;
+		return cveDict;
 	}
 	
 	public void close() {

@@ -52,7 +52,8 @@ public class ScanTarget extends HttpServlet {
 			resultsList.forEach(System.out::println);
 			
 			CVEDbQuery cv = new CVEDbQuery();
-			int dbVulns = 0;
+			Dictionary<String,Dictionary<String,String>> dbVulns = new Hashtable<String,Dictionary<String,String>>();
+			
 			try {
 				dbVulns=cv.readDataBase(d.get("product"), d.get("vendor"));
 			} catch (Exception e) {
