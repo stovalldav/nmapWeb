@@ -7,6 +7,14 @@ public class CVEDbQuery {
 	private Statement statement = null;
 	private ResultSet resultSet = null;
 	
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	public int readDataBase (String product, String vendor) throws Exception {
 		try {
 			connect  = DriverManager.getConnection("jdbc:mysql://cvedb:3306/cve","cveuser@localhost","cvepass");
