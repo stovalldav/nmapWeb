@@ -10,4 +10,4 @@ docker network create -d macvlan --subnet $SUBNET --gateway $GATEWAY -o parent=e
 
 docker run -d -p 8080:8080 --name nmapWeb --net nmnet --ip $NET -v $(pwd)/target/nmapJDBCWEb.war:/usr/local/tomcat/webapps/nmapJDBCWeb.war -v $(pwd)/target/nmapJDBCWeb:/usr/local/tomcat/webapps/ROOT nmcat
 
-docker network connect dbnet nmcat
+docker network connect dbnet nmapWeb
