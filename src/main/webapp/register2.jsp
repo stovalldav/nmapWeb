@@ -45,9 +45,8 @@
            		Dictionary<String,Dictionary<String,String>> vulnDict = (Dictionary<String,Dictionary<String,String>>) request.getAttribute("vulns");
            		%>
            		<c:forEach var="vulnList" items="${vulns}">
-           			Dictionary details = ${vulnList.value}
            			Vuln ID: ${vulnList.key}/>
-           			<c:forEach var="vulnDetails" items="${details}">
+           			<c:forEach var="vulnDetails" items="${vulnList.value}">
            				${vulnDetails.key} : ${vulnDetails.value}<br>
            			</c:forEach>
            		</c:forEach>
