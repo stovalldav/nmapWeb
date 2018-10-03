@@ -23,7 +23,9 @@ public class CVEDbQuery {
 			}
 			
 			statement = connect.createStatement();
-			resultSet = statement.executeQuery("SELECT v.name AS vname, v.id AS vid, p.name AS pname, p.id AS pid FROM vendor v JOIN product p ON v.id=p.vendor_id WHERE p.name="+product+" AND v.name= "+vendor);
+			String vsql = "SELECT v.name AS vname, v.id AS vid, p.name AS pname, p.id AS pid FROM vendor v JOIN product p ON v.id=p.vendor_id WHERE p.name=\'"+product+"\' AND v.name=\'"+vendor+"\'";
+			
+			resultSet = statement.executeQuery(vsql);
 			String prod_id = null;
 			String vendor_id = null;
 			while (resultSet.next()) {
@@ -31,7 +33,9 @@ public class CVEDbQuery {
 				vendor_id = resultSet.getString("vid");
 			}
 			
-			resultSet = statement.executeQuery("SELECT COUNT(*) FROM vuln WHERE vendor_id="+vendor_id+" AND product_id="+prod_id);
+			String sql = "SELECT COUNT(*) FROM vuln WHERE vendor_id=\'"+vendor_id+"\' AND product_id=\'"+prod_id+"\'";
+			
+			resultSet = statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
 				numVulns = resultSet.getInt("COUNT(*)");
