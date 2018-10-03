@@ -7,17 +7,19 @@ public class CVEDbQuery {
 	private Statement statement = null;
 	private ResultSet resultSet = null;
 	
-	public static void main(String[] args) {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-	
 	public int readDataBase (String product, String vendor) throws Exception {
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Looks like the Driver registered just fine");
+			
 			connect  = DriverManager.getConnection("jdbc:mysql://cvedb:3306/cve","cveuser@localhost","cvepass");
+			
+			if(connect != null) {
+				System.out.println("Successful Connection");
+			}
+			else {
+				System.out.println("Connection Failed");
+			}
 			statement = connect.createStatement();
 			resultSet = statement.executeQuery("SELECT v.name AS vname, v.id AS vid, p.name AS pname, p.id AS pid FROM vendor v JOIN product p ON v.id=p.vendor_id WHERE p.name="+product+" AND v.name= "+vendor);
 			String prod_id = null;
@@ -35,7 +37,7 @@ public class CVEDbQuery {
 			}
 			return numVulns;
 		} catch (Exception e) {
-			throw e;
+			e.printStackTrace();
 		} finally {
 			close();
 		}
