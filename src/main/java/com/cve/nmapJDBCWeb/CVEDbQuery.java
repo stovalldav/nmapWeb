@@ -45,17 +45,53 @@ public class CVEDbQuery {
 				
 				String vuln_id = resultSet.getString("id");
 				String impact = resultSet.getString("impact");
+				if(resultSet.wasNull()) {
+					impact = "";
+				}
 				String modified = resultSet.getString("modified");
+				if(resultSet.wasNull()) {
+					modified = "";
+				}
 				String access = resultSet.getString("access");
+				if(resultSet.wasNull()) {
+					access = "";
+				}
 				String references = resultSet.getString("my_references");
+				if(resultSet.wasNull()) {
+					references = "";
+				}
 				String published = resultSet.getString("published");
+				if(resultSet.wasNull()) {
+					published = "";
+				}
 				String cvssTime = resultSet.getString("cvss_time");
+				if(resultSet.wasNull()) {
+					cvssTime = "";
+				}
 				String vulnConf2 = resultSet.getString("vulnerable_configuration_cpe_2_2");
+				if(resultSet.wasNull()) {
+					vulnConf2 = "";
+				}
 				String summary = resultSet.getString("summary");
+				if(resultSet.wasNull()) {
+					summary = "";
+				}
 				String cwe = resultSet.getString("cwe");
+				if(resultSet.wasNull()) {
+					cwe = "";
+				}
 				String cvss = resultSet.getString("cvss");
+				if(resultSet.wasNull()) {
+					cvss = "";
+				}
 				String vulnConf = resultSet.getString("vulnerable_configuration");
+				if(resultSet.wasNull()) {
+					vulnConf = "";
+				}
 				String lastModified = resultSet.getString("last_modified");
+				if(resultSet.wasNull()) {
+					lastModified = "";
+				}
 				
 				vDict.put("impact", impact);
 				vDict.put("modified", modified);
