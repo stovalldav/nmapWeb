@@ -40,6 +40,7 @@
            		}
            		%>
 			</textarea>
+			<textarea name='vulnResults' id='vulnResults'>
            		<%
 	           		Dictionary<String,Dictionary<String,String>> vulnDict = (Dictionary<String,Dictionary<String,String>>) request.getAttribute("vulns");
 	           		for (Enumeration k = vulnDict.keys(); k.hasMoreElements();){
@@ -53,5 +54,6 @@
 	           			}
 	           		}
            		%>
+           		</textarea>
 	</body>
 </html>
