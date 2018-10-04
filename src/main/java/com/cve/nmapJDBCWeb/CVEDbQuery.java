@@ -35,7 +35,7 @@ public class CVEDbQuery {
 				vendor_id = resultSet.getString("vid");
 			}
 			
-			String sql = "SELECT * FROM vuln WHERE vendor_id=\'"+vendor_id+"\' AND product_id=\'"+prod_id+"\'";
+			String sql = "SELECT * FROM vuln WHERE vendor_id=\'"+vendor_id+"\' AND product_id=\'"+prod_id+"\' LIMIT 10";
 			
 			resultSet = statement.executeQuery(sql);
 			
