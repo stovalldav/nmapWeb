@@ -40,20 +40,21 @@
            		}
            		%>
 			</textarea>
+			<br></br>
 			<textarea name='vulnResults' id='vulnResults'>
            		<%
 	           		Dictionary<String,Dictionary<String,String>> vulnDict = (Dictionary<String,Dictionary<String,String>>) request.getAttribute("vulns");
 	           		for (Enumeration k = vulnDict.keys(); k.hasMoreElements();){
 	           			String vulnID = String.valueOf(k.nextElement());
-	           			System.out.println("Vuln : "+vulnID);
+	           			out.println("Vuln : "+vulnID);
 	           			Dictionary<String,String> vulnList = vulnDict.get(vulnID);
 	           			for(Enumeration v = vulnList.keys(); v.hasMoreElements();){
 	           				String vulnKey = String.valueOf(v.nextElement());
 	           				String vulnValue = String.valueOf(vulnList.get(vulnKey));
-	           				System.out.println(vulnKey+":"+vulnValue);
+	           				out.println(vulnKey+":"+vulnValue);
 	           			}
 	           		}
            		%>
-           		</textarea>
+           </textarea>
 	</body>
 </html>
