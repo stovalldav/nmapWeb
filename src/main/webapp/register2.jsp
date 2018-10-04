@@ -40,7 +40,6 @@
            		}
            		%>
 			</textarea>
-           <textarea name='results' id='results'>
            		<%
            		Dictionary<String,Dictionary<String,String>> vulnDict = (Dictionary<String,Dictionary<String,String>>) request.getAttribute("vulns");
            		%>
@@ -53,6 +52,5 @@
            			</c:forEach>
            		</c:forEach>
            		}
-			</textarea>
 	</body>
 </html>
