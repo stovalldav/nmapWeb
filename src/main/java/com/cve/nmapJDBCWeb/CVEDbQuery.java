@@ -35,16 +35,13 @@ public class CVEDbQuery {
 				vendor_id = resultSet.getString("vid");
 			}
 			
-			String sql = "SELECT COUNT(*) FROM vuln WHERE vendor_id=\'"+vendor_id+"\' AND product_id=\'"+prod_id+"\'";
+			String sql = "SELECT * FROM vuln WHERE vendor_id=\'"+vendor_id+"\' AND product_id=\'"+prod_id+"\'";
 			
 			resultSet = statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
 				
 				Dictionary<String,String> vDict = new Hashtable<String,String>();
-
-				numVulns = resultSet.getInt("COUNT(*)");
-				System.out.println("Found vulns: "+String.valueOf(numVulns));
 				
 				String vuln_id = resultSet.getString("id");
 				String impact = resultSet.getString("impact");
