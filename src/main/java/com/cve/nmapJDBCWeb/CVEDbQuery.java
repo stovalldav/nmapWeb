@@ -47,8 +47,8 @@ public class CVEDbQuery {
 				String impact = resultSet.getString("impact");
 				String modified = resultSet.getString("modified");
 				String access = resultSet.getString("access");
-				String references = resultSet.getString("references");
-				String published = resultSet.getString("Published");
+				String references = resultSet.getString("my_references");
+				String published = resultSet.getString("published");
 				String cvssTime = resultSet.getString("cvss_time");
 				String vulnConf2 = resultSet.getString("vulnerable_configuration_cpe_2_2");
 				String summary = resultSet.getString("summary");
