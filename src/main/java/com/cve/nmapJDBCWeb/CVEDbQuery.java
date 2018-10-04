@@ -46,7 +46,7 @@ public class CVEDbQuery {
 				numVulns = resultSet.getInt("COUNT(*)");
 				System.out.println("Found vulns: "+String.valueOf(numVulns));
 				
-				String vuln_id =String.valueOf(resultSet.getInt("id"));
+				String vuln_id = resultSet.getString("id");
 				String impact = resultSet.getString("impact");
 				String modified = resultSet.getString("modified");
 				String access = resultSet.getString("access");
