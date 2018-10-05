@@ -8,7 +8,7 @@ public class nmapScan {
 		public ArrayList<String> scanTarget (String target) {
 			if (validateIP(target) == true) {
 				Runtime rt = Runtime.getRuntime();
-				String[] commands = {"nmap",  "-Pn", "-O", target};
+				String[] commands = {"nmap",  "-Pn", "-sV", "--open", "--reason", "-O", target};
 				try {
 					Process proc =  rt.exec(commands);
 				
