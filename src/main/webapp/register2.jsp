@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" type="text/css" href="resourceses/css/style.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 		<title>NMap Web Success Page</title>
 	</head>
 	<body>
