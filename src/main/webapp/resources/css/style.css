@@ -2,3 +2,7 @@ body{
 	background-color:black;
 	color:yellow;
 }
+textarea{
+	background-color:gray;
+	color:lightgreen
+}
