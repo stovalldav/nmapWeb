@@ -2,7 +2,7 @@ body{
 	background-color:black;
 	color:yellow;
 }
-textarea{
+textarea, input{
 	background-color:gray;
 	color:lightgreen
 }
